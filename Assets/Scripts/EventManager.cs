@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class EventManager : MonoBehaviour
 {
     [SerializeField] private GameObject mainMenu;
-    [SerializeField] private GameObject gameScene;
+    [SerializeField] private GameObject vanPanel;
     [System.Serializable] public class StorySlide
     { 
         public Sprite image;
@@ -28,7 +28,7 @@ public class EventManager : MonoBehaviour
         // Show the main menu on start up of the game
         mainMenu.SetActive(true);
         storyPanel.SetActive(false);
-        gameScene.SetActive(false);
+        vanPanel.SetActive(false);
         currentSlideIndex = 0;
     }
 
@@ -53,7 +53,7 @@ public class EventManager : MonoBehaviour
         {
             // All slides have been shown, start the game?
             storyPanel.SetActive(false);
-            gameScene.SetActive(true);
+            vanPanel.SetActive(true);
         }
     }
 

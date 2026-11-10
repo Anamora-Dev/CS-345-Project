@@ -1226,7 +1226,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EventManager
   mainMenu: {fileID: 1309224745}
-  gameScene: {fileID: 808428394}
+  vanPanel: {fileID: 1290699879}
   storyPanel: {fileID: 1630365707}
   storyImage: {fileID: 296946031}
   storyText: {fileID: 425112881}
@@ -1967,7 +1967,7 @@ MonoBehaviour:
   m_text: Campus Cravings
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2061,7 +2061,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1630365708
 RectTransform:
   m_ObjectHideFlags: 0
