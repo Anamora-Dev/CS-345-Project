@@ -1,2 +1,28 @@
 fileFormatVersion: 2
 guid: aab159db964bef14ab164533a010f011
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - windowImage: {instanceID: 0}
+  - windowClosed: {fileID: -1854446495664317221, guid: 69b3f1225a707cf49978421c360d0195, type: 3}
+  - windowOpen: {fileID: 7172988608079776817, guid: c99104a004c0b2e4dbac432c73545f14, type: 3}
+  - signImage: {instanceID: 0}
+  - signClosed: {fileID: -5356722287894229666, guid: f0e610fe9cc70d24cbe0c43b36f83399, type: 3}
+  - signOpen: {fileID: 9001811421650477068, guid: 6c2b35215e5ce6945ad37957ae71b9c3, type: 3}
+  - customerImage: {instanceID: 0}
+  - customerStart: {instanceID: 0}
+  - customerStop: {instanceID: 0}
+  - bubble: {instanceID: 0}
+  - bubbleText: {instanceID: 0}
+  - continueButton: {instanceID: 0}
+  - starFilled: {instanceID: 0}
+  - starEmpty: {instanceID: 0}
+  - totalCoinsText: {instanceID: 0}
+  - rewardText: {instanceID: 0}
+  - fader: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

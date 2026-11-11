@@ -9,12 +9,14 @@ public enum ServiceState
 
 public struct Payout
 {
-    public int stars;       // 1-5
+    public int stars;       // 1 or 3
     public int tip;
     public int total;       // dish price (if correct) + tip
     public string reaction; // what the customer says
 }
 
+/// Survives scene changes and carries data between the van scene and the kitchen scene.
+/// It creates itself automatically, so you don't need to place it in any scene.
 public class GameManager : MonoBehaviour
 {
     public const string VanScene = "VanServiceScene";
@@ -55,6 +57,7 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+
     public void StartOrder(Order order)
     {
         CurrentOrder = order;
@@ -68,7 +71,7 @@ public class GameManager : MonoBehaviour
         State = ServiceState.NewCustomer;
     }
 
-    public void FinishOrder(string dishMade, float quality01)
+    public void FinishOrder(string dishMade, float quality01 = 1f)
     {
         FinishedTime = Time.time - OrderStartTime;
         FinishedCorrectDish = CurrentOrder != null && dishMade == CurrentOrder.dishName;
@@ -80,25 +83,22 @@ public class GameManager : MonoBehaviour
 
     public Payout CalculatePayout()
     {
+        // How long the customer is willing to wait (set per dish in Order.cs).
         float par = (CurrentOrder != null) ? CurrentOrder.parTimeSeconds : 30f;
 
-        // 1.0 at or under par time, falling to 0 at double par time.
-        float speed = Mathf.Clamp01(1f - (FinishedTime - par) / par);
+        bool satisfied = FinishedCorrectDish;       // right dish?
+        bool onTime    = FinishedTime <= par;       // fast enough?
 
-        float score = FinishedCorrectDish
-            ? 0.6f * FinishedQuality + 0.4f * speed
-            : 0.1f; // wrong dish = bad rating
+        // Automatic rating: 3 stars if satisfied AND on time, otherwise 1 star.
+        int stars = (satisfied && onTime) ? 3 : 1;
 
-        int stars = Mathf.Clamp(Mathf.CeilToInt(score * 5f), 1, 5);
-        int tip = Mathf.RoundToInt(stars * 2f * TipMultiplier);
-        int basePay = FinishedCorrectDish && CurrentOrder != null ? CurrentOrder.price : 0;
+        int tip = Mathf.RoundToInt(stars * 2f * TipMultiplier);   // 3 stars = 6 tip, 1 star = 2 tip
+        int basePay = satisfied && CurrentOrder != null ? CurrentOrder.price : 0;
 
         string reaction;
-        if (!FinishedCorrectDish)      reaction = "Um... this isn't what I ordered.";
-        else if (stars >= 5)           reaction = "Wow, amazing! Keep the change!";
-        else if (stars >= 4)           reaction = "Great, thank you!";
-        else if (stars >= 3)           reaction = "Thanks, that's fine.";
-        else                           reaction = "Hmm. It took a while...";
+        if (!satisfied)   reaction = "Um... this isn't what I ordered.";
+        else if (!onTime) reaction = "Thanks... but that took forever.";
+        else              reaction = "Great, thank you!";
 
         return new Payout { stars = stars, tip = tip, total = basePay + tip, reaction = reaction };
     }
