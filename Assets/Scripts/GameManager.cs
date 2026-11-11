@@ -20,7 +20,7 @@ public struct Payout
 public class GameManager : MonoBehaviour
 {
     public const string VanScene = "VanServiceScene";
-    public const string KitchenScene = "KitchenScene";
+    public const string KitchenScene = "KitchenTest";
 
     public static GameManager Instance { get; private set; }
 

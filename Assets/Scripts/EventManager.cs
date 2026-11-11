@@ -2,11 +2,13 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class EventManager : MonoBehaviour
 {
     [SerializeField] private GameObject mainMenu;
     [SerializeField] private GameObject vanPanel;
+    [SerializeField] private ScreenFader fader;
     [System.Serializable] public class StorySlide
     { 
         public Sprite image;
@@ -21,6 +23,7 @@ public class EventManager : MonoBehaviour
     public TMP_Text storyText;
     public StorySlide[] storySlides;
     private int currentSlideIndex = 0;
+    private bool leavingIntro = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -52,9 +55,18 @@ public class EventManager : MonoBehaviour
         else
         {
             // All slides have been shown, start the game?
-            storyPanel.SetActive(false);
-            vanPanel.SetActive(true);
+            if (!leavingIntro)
+            {
+                StartCoroutine(GoToVanScene());
+            }
         }
+    }
+
+    IEnumerator GoToVanScene()                                   
+    {
+        leavingIntro = true;                 
+        if (fader != null) yield return fader.FadeOut();
+        SceneManager.LoadScene("VanServiceScene");
     }
 
     public void QuitGame()
