@@ -2,8 +2,14 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!78 &1
 TagManager:
-  serializedVersion: 2
-  tags: []
+  serializedVersion: 3
+  tags:
+  - ToastedBread
+  - CutAvocado
+  - CookedEgg
+  - WhiteBread
+  - FridgeDoor
+  - Pan
   layers:
   - Default
   - TransparentFX
@@ -41,3 +47,48 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Floor
+    uniqueID: 4200111897
+    locked: 0
+  - name: Wall
+    uniqueID: 1579161837
+    locked: 0
+  - name: Window
+    uniqueID: 55308413
+    locked: 0
+  - name: Furniture
+    uniqueID: 3287707463
+    locked: 0
+  - name: CabinetFood 1
+    uniqueID: 2609064425
+    locked: 0
+  - name: CabinetFood2
+    uniqueID: 1193723295
+    locked: 0
+  - name: Furniture Accessory 1
+    uniqueID: 2516577653
+    locked: 0
+  - name: Furniture Accessory 2
+    uniqueID: 2448479373
+    locked: 0
+  - name: Decor
+    uniqueID: 4065174135
+    locked: 0
+  - name: Tools1
+    uniqueID: 1825732743
+    locked: 0
+  - name: Tools2
+    uniqueID: 4213287535
+    locked: 0
+  - name: Food1
+    uniqueID: 234628245
+    locked: 0
+  - name: Food2
+    uniqueID: 903496841
+    locked: 0
+  - name: Progress Bars
+    uniqueID: 310185291
+    locked: 0
+  m_RenderingLayers:
+  - Default
+  m_MigratedRenderPipelines: []
