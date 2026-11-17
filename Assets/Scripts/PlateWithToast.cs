@@ -51,7 +51,7 @@ public class PlateWithToast : MonoBehaviour
         // Spawn avocado toast
         Instantiate(
         avocadoToastPrefab,
-        transform.position + new Vector3(-2.3f, 0.05f, 0f),
+        transform.position + new Vector3(0f, 0.0f, 0f),
         transform.rotation
     );
 

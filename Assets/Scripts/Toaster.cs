@@ -104,9 +104,14 @@ public class Toaster : MonoBehaviour
             );
 
             Draggable newDraggable = newBread.GetComponent<Draggable>();
-
             if (newDraggable != null)
                 newDraggable.canDrag = true;
+
+            BreadItem newItem = newBread.GetComponent<BreadItem>();
+            if (newItem != null)
+                newItem.state = BreadItem.BreadState.Toasted;
+            else
+                Debug.LogError("Toasted Bread Prefab needs a BreadItem component!", newBread);
 
             Destroy(b.gameObject);
         }

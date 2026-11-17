@@ -1,4 +1,3 @@
-
 using System.Collections;
 using UnityEngine;
 
@@ -8,7 +7,7 @@ public class Pan : MonoBehaviour
     public GameObject progressBar;
     public Transform fillPivot;
     public float cookTime = 3f;
-    public Sprite friedEggSprite;
+    public GameObject friedEggPrefab;   // replaces friedEggSprite
 
     Collider2D col;
     Draggable currentEgg;
@@ -69,16 +68,21 @@ public class Pan : MonoBehaviour
 
         progressBar.SetActive(false);
 
-        SpriteRenderer sr = egg.GetComponent<SpriteRenderer>();
+        if (friedEggPrefab != null)
+        {
+            Vector3 spawnPosition = eggSpot.position;
+            spawnPosition.z = egg.transform.position.z;
 
-        if (friedEggSprite != null)
-            sr.sprite = friedEggSprite;
+            Instantiate(friedEggPrefab, spawnPosition, Quaternion.identity);
+            Destroy(egg.gameObject);   // raw egg is replaced by the fried one
+        }
+        else
+        {
+            Debug.LogError("Pan is missing its Fried Egg Prefab!", this);
+            egg.canDrag = true;
+        }
 
-        egg.transform.localScale = new Vector3(0.35f, 0.35f, 1f);
-        egg.originalScale = new Vector3(0.35f, 0.35f, 1f);
-        egg.tag = "CookedEgg";
-        egg.canDrag = true;
-
+        currentEgg = null;
         cooking = false;
     }
 
@@ -88,11 +92,7 @@ public class Pan : MonoBehaviour
 
         float width = originalWidth * p;
 
-        fillPivot.localScale = new Vector3(
-            width,
-            originalScale.y,
-            originalScale.z
-        );
+        fillPivot.localScale = new Vector3(width, originalScale.y, originalScale.z);
 
         fillPivot.localPosition = new Vector3(
             -(originalWidth - width) / 2f,

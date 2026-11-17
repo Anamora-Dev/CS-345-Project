@@ -1,15 +1,8 @@
-
 using UnityEngine;
 
 public class BreadItem : MonoBehaviour
 {
-    public enum BreadState
-    {
-        Raw,
-        Toasting,
-        Toasted,
-        Plated
-    }
+    public enum BreadState { Raw, Toasting, Toasted, Plated }
 
     public BreadState state = BreadState.Raw;
 
@@ -21,25 +14,18 @@ public class BreadItem : MonoBehaviour
 
     void Awake()
     {
-        if (spriteRenderer == null)
-            spriteRenderer = GetComponent<SpriteRenderer>();
-
-        if (draggable == null)
-            draggable = GetComponent<Draggable>();
+        if (spriteRenderer == null) spriteRenderer = GetComponent<SpriteRenderer>();
+        if (draggable == null) draggable = GetComponent<Draggable>();
     }
 
     public void SetState(BreadState newState)
     {
         state = newState;
 
-        if (state == BreadState.Raw)
-            spriteRenderer.sprite = rawSprite;
-
-        if (state == BreadState.Toasted)
-            spriteRenderer.sprite = toastedSprite;
+        if (state == BreadState.Raw) spriteRenderer.sprite = rawSprite;
+        if (state == BreadState.Toasted) spriteRenderer.sprite = toastedSprite;
 
         if (draggable != null)
-            draggable.canDrag = state == BreadState.Raw ||
-                                state == BreadState.Toasted;
+            draggable.canDrag = state == BreadState.Raw || state == BreadState.Toasted;
     }
 }

@@ -8,6 +8,7 @@ public class Draggable : MonoBehaviour
     public event Action<Draggable> Dropped;
     public static event Action<Draggable> AnyDropped;
     public bool canDrag = true;
+    public bool canBeTrashed = true;
 
     Camera cam;
     Collider2D col;
@@ -74,7 +75,6 @@ public class Draggable : MonoBehaviour
             {
                 dragging = false;
                 if (sr) sr.sortingOrder = baseSortingOrder;
-                Dropped?.Invoke(this);
                 Dropped?.Invoke(this);
                 AnyDropped?.Invoke(this);   
             }

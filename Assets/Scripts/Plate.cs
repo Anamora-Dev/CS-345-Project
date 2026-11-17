@@ -1,61 +1,61 @@
-
+using System.Collections.Generic;
 using UnityEngine;
 
-public class Plate : MonoBehaviour
+public interface IDropTarget
 {
-    public GameObject plateWithToastPrefab;
+    bool TryAccept(IngredientData ingredient);
+}
 
-    private Collider2D col;
-    private bool used;
+public class Plate : MonoBehaviour, IDropTarget
+{
+    [SerializeField] SpriteRenderer plateRenderer;
+    [SerializeField] SpriteRenderer foodRenderer;
+    [SerializeField] Transform foodAnchor;   // empty child where food prefabs appear
+    [SerializeField] Recipe[] knownRecipes;
 
-    void Awake()
+    readonly List<IngredientData> contents = new();
+    GameObject currentVisual;
+
+    public void Init(PlateDesign design) => plateRenderer.sprite = design.sprite;
+
+    public bool TryAccept(IngredientData ingredient)
     {
-        col = GetComponent<Collider2D>();
+        foreach (var recipe in knownRecipes)
+        {
+            int i = contents.Count;
+            if (i >= recipe.steps.Length) continue;
+            if (!Matches(recipe, i, ingredient)) continue;
 
-        if (col == null)
-            Debug.LogError("Plate needs a Collider2D!", this);
-
-        if (plateWithToastPrefab == null)
-            Debug.LogError("Plate-with-toast prefab is missing!", this);
+            contents.Add(ingredient);
+            ShowFood(recipe.steps[i]);
+            if (contents.Count == recipe.steps.Length) OnRecipeComplete(recipe);
+            return true;
+        }
+        return false;
     }
 
-    void OnEnable()
+    void ShowFood(Recipe.Step step)
     {
-        Draggable.AnyDropped += OnItemDropped;
+        if (currentVisual) Destroy(currentVisual);
+
+        if (step.plateVisual)
+        {
+            currentVisual = Instantiate(step.plateVisual, foodAnchor);
+            currentVisual.transform.localPosition = Vector3.zero;
+            foodRenderer.sprite = null;
+        }
+        else
+        {
+            foodRenderer.sprite = step.plateSprite;
+        }
     }
 
-    void OnDisable()
+    bool Matches(Recipe r, int stepIndex, IngredientData next)
     {
-        Draggable.AnyDropped -= OnItemDropped;
+        for (int k = 0; k < stepIndex; k++)
+            if (r.steps[k].ingredient != contents[k]) return false;
+        return r.steps[stepIndex].ingredient == next;
     }
 
-    void OnItemDropped(Draggable item)
-    {
-        if (used || item == null || col == null)
-            return;
-
-        // Only accept toasted bread
-        if (!item.CompareTag("ToastedBread"))
-            return;
-
-        if (item.Col == null)
-            return;
-
-        // Check whether bread overlaps the plate
-        if (!item.Col.Distance(col).isOverlapped)
-            return;
-
-        used = true;
-
-        // Spawn plate with toast
-        Instantiate(
-            plateWithToastPrefab,
-            transform.position,
-            transform.rotation
-        );
-
-        // Remove original objects
-        Destroy(item.gameObject);
-        Destroy(gameObject);
-    }
+    void OnRecipeComplete(Recipe recipe) { /* serve, score, etc. */ }
 }

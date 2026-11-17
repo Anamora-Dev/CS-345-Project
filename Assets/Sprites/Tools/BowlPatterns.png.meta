@@ -1,0 +1,366 @@
+fileFormatVersion: 2
+guid: ed7642d2082aa1c468af60f461905ef2
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4923094417176895701
+    second: Pastel Pixel Soup Bowl Collection (3)_0
+  - first:
+      213: 2719801909517175493
+    second: Pastel Pixel Soup Bowl Collection (3)_1
+  - first:
+      213: -2511665436688898280
+    second: Pastel Pixel Soup Bowl Collection (3)_2
+  - first:
+      213: -2335297849517465779
+    second: Pastel Pixel Soup Bowl Collection (3)_3
+  - first:
+      213: -7423764802653190459
+    second: Pastel Pixel Soup Bowl Collection (3)_4
+  - first:
+      213: -738246486963266044
+    second: Pastel Pixel Soup Bowl Collection (3)_5
+  - first:
+      213: -4326007651560745603
+    second: Pastel Pixel Soup Bowl Collection (3)_6
+  - first:
+      213: 6066389347302058104
+    second: Pastel Pixel Soup Bowl Collection (3)_7
+  - first:
+      213: 1559791769505473308
+    second: Pastel Pixel Soup Bowl Collection (3)_8
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Pastel Pixel Soup Bowl Collection (3)_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1565
+        width: 317
+        height: 188
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d0a98be948525440800000000000000
+      internalID: 4923094417176895701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pastel Pixel Soup Bowl Collection (3)_1
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1370
+        width: 317
+        height: 188
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ca43343d6daeb520800000000000000
+      internalID: 2719801909517175493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pastel Pixel Soup Bowl Collection (3)_2
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1175
+        width: 314
+        height: 188
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 817288bb795c42dd0800000000000000
+      internalID: -2511665436688898280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pastel Pixel Soup Bowl Collection (3)_3
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 980
+        width: 314
+        height: 191
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4f17c29afa579fd0800000000000000
+      internalID: -2335297849517465779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pastel Pixel Soup Bowl Collection (3)_4
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 785
+        width: 317
+        height: 188
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c60fc9ae3d79f890800000000000000
+      internalID: -7423764802653190459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pastel Pixel Soup Bowl Collection (3)_5
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 590
+        width: 317
+        height: 188
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40edfd34bb831c5f0800000000000000
+      internalID: -738246486963266044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pastel Pixel Soup Bowl Collection (3)_6
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 395
+        width: 317
+        height: 188
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d75991906fee6f3c0800000000000000
+      internalID: -4326007651560745603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pastel Pixel Soup Bowl Collection (3)_7
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 200
+        width: 317
+        height: 188
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 878272368f4203450800000000000000
+      internalID: 6066389347302058104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pastel Pixel Soup Bowl Collection (3)_8
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 5
+        width: 317
+        height: 188
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c13a3f8a95e75a510800000000000000
+      internalID: 1559791769505473308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Pastel Pixel Soup Bowl Collection (3)_0: 4923094417176895701
+      Pastel Pixel Soup Bowl Collection (3)_1: 2719801909517175493
+      Pastel Pixel Soup Bowl Collection (3)_2: -2511665436688898280
+      Pastel Pixel Soup Bowl Collection (3)_3: -2335297849517465779
+      Pastel Pixel Soup Bowl Collection (3)_4: -7423764802653190459
+      Pastel Pixel Soup Bowl Collection (3)_5: -738246486963266044
+      Pastel Pixel Soup Bowl Collection (3)_6: -4326007651560745603
+      Pastel Pixel Soup Bowl Collection (3)_7: 6066389347302058104
+      Pastel Pixel Soup Bowl Collection (3)_8: 1559791769505473308
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
