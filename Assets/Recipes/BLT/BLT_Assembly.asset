@@ -1,0 +1,83 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eab876b40d0d40848b2a1a78293d8960, type: 3}
+  m_Name: BLT_Assembly
+  m_EditorClassIdentifier: Assembly-CSharp::Recipe
+  steps:
+  - ingredient: {fileID: 11400000, guid: 68b8c7dee81d8d84e9db773c1d8a8548, type: 2}
+    visualAction: 0
+    placementType: 0
+    snapPointIndex: 0
+    targetStepIndex: 0
+    plateSprite: {fileID: 0}
+    plateVisual: {fileID: 1730121934439601807, guid: 1e595321cb9cabe439c12b87f1bc3e9f, type: 3}
+    overrideSortingLayer: 0
+    sortingLayerName: 
+  - ingredient: {fileID: 11400000, guid: bd164b59dac0cfe4dbce2e7a0657186b, type: 2}
+    visualAction: 0
+    placementType: 1
+    snapPointIndex: 0
+    targetStepIndex: 0
+    plateSprite: {fileID: 0}
+    plateVisual: {fileID: 3098915499985562435, guid: c4e548b65a39d8347a84bc35732e02be, type: 3}
+    overrideSortingLayer: 0
+    sortingLayerName: 
+  - ingredient: {fileID: 11400000, guid: bd164b59dac0cfe4dbce2e7a0657186b, type: 2}
+    visualAction: 0
+    placementType: 1
+    snapPointIndex: 1
+    targetStepIndex: 0
+    plateSprite: {fileID: 0}
+    plateVisual: {fileID: 3098915499985562435, guid: c4e548b65a39d8347a84bc35732e02be, type: 3}
+    overrideSortingLayer: 0
+    sortingLayerName: 
+  - ingredient: {fileID: 11400000, guid: bd164b59dac0cfe4dbce2e7a0657186b, type: 2}
+    visualAction: 0
+    placementType: 1
+    snapPointIndex: 2
+    targetStepIndex: 0
+    plateSprite: {fileID: 0}
+    plateVisual: {fileID: 3098915499985562435, guid: c4e548b65a39d8347a84bc35732e02be, type: 3}
+    overrideSortingLayer: 0
+    sortingLayerName: 
+  - ingredient: {fileID: 11400000, guid: 83b5f3b551ed1c14f8c5586369764759, type: 2}
+    visualAction: 0
+    placementType: 0
+    snapPointIndex: 0
+    targetStepIndex: 0
+    plateSprite: {fileID: 0}
+    plateVisual: {fileID: 6623602802353874730, guid: 62f819388190a684aa303bef2db56889, type: 3}
+    overrideSortingLayer: 0
+    sortingLayerName: 
+  - ingredient: {fileID: 11400000, guid: 816a54352811d8c4688cb941a9adca67, type: 2}
+    visualAction: 0
+    placementType: 0
+    snapPointIndex: 0
+    targetStepIndex: 0
+    plateSprite: {fileID: 0}
+    plateVisual: {fileID: 9101218095281310100, guid: d52ff40238602d84998a6788a9fc174f, type: 3}
+    overrideSortingLayer: 0
+    sortingLayerName: 
+  - ingredient: {fileID: 11400000, guid: 68b8c7dee81d8d84e9db773c1d8a8548, type: 2}
+    visualAction: 0
+    placementType: 0
+    snapPointIndex: 0
+    targetStepIndex: 0
+    plateSprite: {fileID: 0}
+    plateVisual: {fileID: 1730121934439601807, guid: 1e595321cb9cabe439c12b87f1bc3e9f, type: 3}
+    overrideSortingLayer: 1
+    sortingLayerName: Food5
+  cookTime: 0
+  cookedOutput: {fileID: 0}
+  outputMode: 0
+  finishedVesselSprite: {fileID: 0}
+  servings: 4

@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2f515f6607f7794ab3f477325d490b3, type: 3}
   m_Name: Avocado
   m_EditorClassIdentifier: Assembly-CSharp::IngredientData
-  dragSprite: {fileID: 0}
+  transformations:
+  - action: 2
+    result: {fileID: -3031009115184044017, guid: 938bd3d244f65c143a2bf6280d6b7a93, type: 3}

@@ -1,50 +1,77 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
-/// One script for every dish. Put it on a single "Dish" prefab with two child sprites:
-///   PlateSprite (the plate design, picked once when the plate is spawned)
-///   FoodSprite  (changes as the dish gets built: toast -> avocado -> egg)
-public class Dish : MonoBehaviour
+public abstract class Dish : MonoBehaviour, IDropTarget
 {
-    public enum Stage { Empty, Toast, Avocado, AvocadoEgg }
-
     [Header("Renderers")]
-    [SerializeField] SpriteRenderer plateRenderer;
+    [FormerlySerializedAs("plateRenderer")]
+    [FormerlySerializedAs("bowlRenderer")]
+    [SerializeField] SpriteRenderer baseRenderer;
+
     [SerializeField] SpriteRenderer foodRenderer;
 
-    [Header("Food sprite per stage (Empty is ignored)")]
-    [SerializeField] Sprite toastSprite;
-    [SerializeField] Sprite avocadoToastSprite;
-    [SerializeField] Sprite avocadoEggSprite;
+    [Header("Visual Anchors")]
+    [SerializeField] Transform foodAnchor;
 
-    public Stage CurrentStage { get; private set; } = Stage.Empty;
+    [Header("Recipes")]
+    [SerializeField] Recipe[] knownRecipes;
 
-    void Awake() => SetStage(CurrentStage);
+    [Header("Snap Points")]
+    [SerializeField] Transform[] customSnapPoints;
 
-    /// Called once by the plate stack. The plate never changes after this.
-    public void SetPlate(Sprite design, Color tint, bool flipX)
+    [Header("Layering")]
+    [SerializeField] int orderPerStep = 10;   // gap between steps, so multi-sprite prefabs don't collide
+
+    RecipeTracker tracker;
+    StepVisualizer visuals;
+
+    bool completed;
+
+    public Recipe CompletedRecipe { get; private set; }
+
+    void Awake()
     {
-        if (design != null) plateRenderer.sprite = design;
-        plateRenderer.color = tint;
-        plateRenderer.flipX = flipX;
+        tracker = new RecipeTracker(knownRecipes);
+        visuals = new StepVisualizer(this, baseRenderer, foodRenderer, foodAnchor,
+            customSnapPoints, orderPerStep, false, false);
     }
 
-    /// Call this from your cooking logic, e.g. dish.SetStage(Dish.Stage.Avocado);
-    public void SetStage(Stage stage)
+    protected void SetBaseSprite(Sprite sprite)
     {
-        CurrentStage = stage;
+        if (baseRenderer)
+            baseRenderer.sprite = sprite;
+    }
 
-        switch (stage)
+    public bool TryAccept(Ingredient item)
+    {
+        if (completed || item == null || item.data == null)
+            return false;
+
+        if (!tracker.TryAdd(item.data, out Recipe recipe, out int stepIndex))
+            return false;
+
+        visuals.Apply(recipe.steps[stepIndex], stepIndex);
+
+        // The ingredient has been accepted.
+        if (tracker.IsComplete(recipe))
         {
-            case Stage.Toast:      foodRenderer.sprite = toastSprite; break;
-            case Stage.Avocado:    foodRenderer.sprite = avocadoToastSprite; break;
-            case Stage.AvocadoEgg: foodRenderer.sprite = avocadoEggSprite; break;
+            completed = true;
+            CompletedRecipe = recipe;
+            OnRecipeComplete(recipe);
         }
-        foodRenderer.enabled = stage != Stage.Empty;
+
+        Destroy(item.gameObject);
+        return true;
     }
 
-    public void SetSortingOrder(int order)
+    protected virtual void OnRecipeComplete(Recipe recipe) { }
+
+    public void ClearDish()
     {
-        plateRenderer.sortingOrder = order;
-        foodRenderer.sortingOrder = order + 1; // food always draws on top of its plate
+        visuals.Clear();
+        tracker.Clear();
+
+        completed = false;
+        CompletedRecipe = null;
     }
 }

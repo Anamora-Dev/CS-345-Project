@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eab876b40d0d40848b2a1a78293d8960, type: 3}
+  m_Name: GrilledCheeseAssembly
+  m_EditorClassIdentifier: Assembly-CSharp::Recipe
+  steps:
+  - ingredient: {fileID: 11400000, guid: b8785e7fc980296458dd4809404bf438, type: 2}
+    visualAction: 0
+    placementType: 0
+    snapPointIndex: 0
+    targetStepIndex: 0
+    plateSprite: {fileID: 0}
+    plateVisual: {fileID: 8284709918316092875, guid: 82748017fd6f56c4c9f03e6ad858530f, type: 3}
+    overrideSortingLayer: 0
+    sortingLayerName: 
+  cookTime: 3
+  cookedOutput: {fileID: 0}
+  outputMode: 0
+  finishedVesselSprite: {fileID: 0}
+  servings: 4

@@ -13,3 +13,6 @@ MonoBehaviour:
   m_Name: ToastedToast
   m_EditorClassIdentifier: Assembly-CSharp::IngredientData
   dragSprite: {fileID: -1908788284259789754, guid: 13fa2ae48137d7e48bbb75059cf62ba7, type: 3}
+  transformations:
+  - action: 0
+    result: {fileID: 0}

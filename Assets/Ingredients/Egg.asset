@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2f515f6607f7794ab3f477325d490b3, type: 3}
   m_Name: Egg
   m_EditorClassIdentifier: Assembly-CSharp::IngredientData
-  dragSprite: {fileID: 1864662434203819334, guid: 0b2eb276a83203246a739eaf8983a7ca, type: 3}
+  dragSprite: {fileID: 2496665120342024263, guid: 7a77ec967389a0244a54e9e7328b4baf, type: 3}
+  transformations: []

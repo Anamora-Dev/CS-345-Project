@@ -77,6 +77,9 @@ TagManager:
   - name: Tools1
     uniqueID: 1825732743
     locked: 0
+  - name: InSituFood
+    uniqueID: 537223013
+    locked: 0
   - name: Tools2
     uniqueID: 4213287535
     locked: 0
@@ -85,6 +88,18 @@ TagManager:
     locked: 0
   - name: Food2
     uniqueID: 903496841
+    locked: 0
+  - name: Food3
+    uniqueID: 4006474055
+    locked: 0
+  - name: Food4
+    uniqueID: 798090849
+    locked: 0
+  - name: Food5
+    uniqueID: 765558129
+    locked: 0
+  - name: Food6
+    uniqueID: 2526658615
     locked: 0
   - name: Progress Bars
     uniqueID: 310185291

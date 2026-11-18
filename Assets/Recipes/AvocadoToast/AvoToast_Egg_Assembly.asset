@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eab876b40d0d40848b2a1a78293d8960, type: 3}
+  m_Name: AvoToast_Egg_Assembly
+  m_EditorClassIdentifier: Assembly-CSharp::Recipe
+  steps:
+  - ingredient: {fileID: 11400000, guid: 68b8c7dee81d8d84e9db773c1d8a8548, type: 2}
+    visualAction: 0
+    placementType: 0
+    snapPointIndex: 0
+    targetStepIndex: 0
+    plateSprite: {fileID: 0}
+    plateVisual: {fileID: 1730121934439601807, guid: 1e595321cb9cabe439c12b87f1bc3e9f, type: 3}
+  - ingredient: {fileID: 11400000, guid: 0f57399a2680d2e4a93a834cd9c2d590, type: 2}
+    visualAction: 2
+    placementType: 0
+    snapPointIndex: 0
+    targetStepIndex: 0
+    plateSprite: {fileID: 0}
+    plateVisual: {fileID: 7139711421768109235, guid: 41030f2995455e644b5368c67ade13d4, type: 3}
+  - ingredient: {fileID: 11400000, guid: 8fea97c679de7e343b03b15cf755c128, type: 2}
+    visualAction: 2
+    placementType: 0
+    snapPointIndex: 0
+    targetStepIndex: 1
+    plateSprite: {fileID: 0}
+    plateVisual: {fileID: 1294892925749745018, guid: 68519fb852d19194f85ac981e9d4b444, type: 3}
+  cookTime: 0
+  cookedOutput: {fileID: 0}

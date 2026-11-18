@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 425fc91ef90eeff4ca9574eb7f2ce0d9
+guid: 442913c1e2283604faafd8ecbd1612ce
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3483574656620730349
-    second: New Piskel-1.png (2)_0
+      213: -8902649753134399691
+    second: Stove-1.png (4)_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -115,13 +115,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: New Piskel-1.png (2)_0
+      name: Stove-1.png (4)_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 384
-        height: 384
+        width: 369
+        height: 369
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -130,8 +130,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 318619b7e4bd7afc0800000000000000
-      internalID: -3483574656620730349
+      spriteID: 53f74b0c73f637480800000000000000
+      internalID: -8902649753134399691
       vertices: []
       indices: 
       edges: []
@@ -150,7 +150,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      New Piskel-1.png (2)_0: -3483574656620730349
+      Stove-1.png (4)_0: -8902649753134399691
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

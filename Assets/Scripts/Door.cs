@@ -9,11 +9,19 @@ public class Door : MonoBehaviour
     [SerializeField] private Collider2D closedCollider;
     [SerializeField] private Collider2D openCollider;
 
+    [Tooltip("Spawners (or anything else) that should only exist while this door is open.")]
+    [SerializeField] private GameObject[] contents;
+
     private Camera cam;
     private bool isOpen;
+    private int openedFrame = -1;
 
     public bool IsOpen => isOpen;
-    public bool JustOpened { get; private set; }
+    public event System.Action<bool> OpenChanged;
+
+    /// True for the whole frame in which the door was opened, regardless of script execution order.
+    /// Spawners use it so the click that opens the door doesn't also grab an item.
+    public bool JustOpened => openedFrame == Time.frameCount;
 
     void Awake()
     {
@@ -23,8 +31,6 @@ public class Door : MonoBehaviour
 
     void Update()
     {
-        JustOpened = false;
-
         if (Mouse.current == null || !Mouse.current.leftButton.wasPressedThisFrame)
             return;
 
@@ -37,10 +43,10 @@ public class Door : MonoBehaviour
         if (activeCollider != null && activeCollider.OverlapPoint(mouseWorld))
         {
             bool opening = !isOpen;
-            SetOpen(!isOpen);
+            SetOpen(opening);
 
             if (opening)
-                JustOpened = true;
+                openedFrame = Time.frameCount;
         }
     }
 
@@ -53,5 +59,13 @@ public class Door : MonoBehaviour
 
         closedCollider.enabled = !open;
         openCollider.enabled = open;
+
+        foreach (var item in contents)
+        {
+            if (item)
+                item.SetActive(open);
+        }
+
+        OpenChanged?.Invoke(open);
     }
 }

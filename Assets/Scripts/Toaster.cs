@@ -2,89 +2,95 @@
 using System.Collections;
 using UnityEngine;
 
-public class Toaster : MonoBehaviour
+public class Toaster : MonoBehaviour, IDropTarget
 {
-    public Transform breadSpot;
-    public Animator animator;
+    [Header("Bread")]
+    [SerializeField] IngredientData rawBreadData;
+    [SerializeField] Ingredient toastedBreadPrefab;
+    [SerializeField] Transform breadSpot;
 
-    public string toastState = "Toast";
-    public string idleState = "Idle";
+    [Header("Animation")]
+    [SerializeField] Animator animator;
+    [SerializeField] string toastState = "Toast";
+    [SerializeField] string idleState = "Idle";
 
-    public GameObject toastedBreadPrefab;
-
-    private Collider2D col;
-    private bool busy;
-    private bool toasted;
+    bool busy;
 
     void Awake()
     {
-        col = GetComponent<Collider2D>();
-
-        if (col == null)
-            Debug.LogError("Toaster needs a Collider2D.", this);
-
-        if (animator == null)
+        if (!animator)
             Debug.LogError("Toaster needs an Animator.", this);
 
-        if (breadSpot == null)
+        if (!breadSpot)
             Debug.LogError("Toaster needs a Bread Spot.", this);
 
-        if (animator != null)
+        if (!rawBreadData)
+            Debug.LogError("Assign Raw Bread Data.", this);
+
+        if (!toastedBreadPrefab)
+            Debug.LogError("Assign Toasted Bread Prefab.", this);
+
+        if (animator)
         {
             animator.ResetTrigger("Toast");
             animator.Play(idleState, 0, 0f);
         }
     }
 
-    void OnEnable()
+    public bool TryAccept(Ingredient item)
     {
-        Draggable.AnyDropped += OnBreadDropped;
-    }
+        if (busy || item == null)
+            return false;
 
-    void OnDisable()
-    {
-        Draggable.AnyDropped -= OnBreadDropped;
-    }
+        // Only accept raw bread
+        if (item.data != rawBreadData)
+            return false;
 
-    void OnBreadDropped(Draggable b)
-    {
-        if (busy) return;
-        if (b == null || col == null || b.Col == null) return;
+        if (!animator || !breadSpot || !toastedBreadPrefab)
+            return false;
 
-        if (!b.CompareTag("WhiteBread")) return;
+        // Keep the raw bread alive during the animation
+        item.KeepAfterAccept();
 
-        if (!b.Col.Distance(col).isOverlapped) return;
-
-        StartCoroutine(Toast(b));
-    }
-
-    IEnumerator Toast(Draggable b)
-    {
         busy = true;
-        b.canDrag = false;
 
-        SpriteRenderer sr = b.GetComponent<SpriteRenderer>();
+        StartCoroutine(Toast(item));
+
+        return true;
+    }
+
+    IEnumerator Toast(Ingredient item)
+    {
+        Draggable drag = item.GetComponent<Draggable>();
+
+        if (drag)
+            drag.canDrag = false;
 
         // Hide raw bread
-        if (sr != null)
+        SpriteRenderer sr = item.GetComponent<SpriteRenderer>();
+
+        if (sr)
             sr.enabled = false;
 
         // Move bread into toaster
-        b.transform.position = new Vector3(
+        item.transform.position = new Vector3(
             breadSpot.position.x,
             breadSpot.position.y,
-            b.transform.position.z
+            item.transform.position.z
         );
 
-        // Play toaster animation
+        // Play animation
         animator.ResetTrigger("Toast");
         animator.SetTrigger("Toast");
 
         yield return null;
 
         // Wait for animation to start
-        while (!animator.GetCurrentAnimatorStateInfo(0).IsName(toastState))
+        while (!animator.GetCurrentAnimatorStateInfo(0)
+            .IsName(toastState))
+        {
             yield return null;
+        }
 
         // Wait for animation to finish
         yield return new WaitUntil(() =>
@@ -92,38 +98,27 @@ public class Toaster : MonoBehaviour
         );
 
         // Spawn toasted bread
-        if (toastedBreadPrefab != null)
-        {
-            Vector3 spawnPosition = breadSpot.position;
-            spawnPosition.z = b.transform.position.z;
+        Vector3 spawnPosition = breadSpot.position;
+        spawnPosition.z = item.transform.position.z;
 
-            GameObject newBread = Instantiate(
-                toastedBreadPrefab,
-                spawnPosition,
-                Quaternion.identity
-            );
+        Ingredient newBread = Instantiate(
+            toastedBreadPrefab,
+            spawnPosition,
+            Quaternion.identity
+        );
 
-            Draggable newDraggable = newBread.GetComponent<Draggable>();
-            if (newDraggable != null)
-                newDraggable.canDrag = true;
+        Draggable newDrag = newBread.GetComponent<Draggable>();
 
-            BreadItem newItem = newBread.GetComponent<BreadItem>();
-            if (newItem != null)
-                newItem.state = BreadItem.BreadState.Toasted;
-            else
-                Debug.LogError("Toasted Bread Prefab needs a BreadItem component!", newBread);
+        if (newDrag)
+            newDrag.canDrag = true;
 
-            Destroy(b.gameObject);
-        }
-        else
-        {
-            Debug.LogError("Toasted Bread Prefab is missing!");
-        }
+        // Remove raw bread
+        Destroy(item.gameObject);
 
         // Reset toaster
-        busy = false;
-
         animator.ResetTrigger("Toast");
         animator.Play(idleState, 0, 0f);
+
+        busy = false;
     }
 }
