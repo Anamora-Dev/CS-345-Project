@@ -53,7 +53,8 @@ public class EventManager : MonoBehaviour
         {
             // All slides have been shown, start the game?
             storyPanel.SetActive(false);
-            vanPanel.SetActive(true);
+            //vanPanel.SetActive(true);
+            SceneManager.LoadScene("GameScene"); // Load the game scene
         }
     }
 
