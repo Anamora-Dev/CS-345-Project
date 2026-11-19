@@ -14,5 +14,11 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/KitchenTest.unity
     guid: d32a306a41fae484090805838e787801
+  - enabled: 1
+    path: Assets/Scenes/MainScene.unity
+    guid: e597d8726b8483742978b0bfff31ca82
+  - enabled: 1
+    path: Assets/Scenes/GameScene.unity
+    guid: 7a921780a75ee8d4f87e7842e30b994d
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
