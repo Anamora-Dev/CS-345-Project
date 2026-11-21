@@ -3,6 +3,14 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Food/Recipe")]
 public class Recipe : ScriptableObject
 {
+
+    [Header("Ticket")]
+    public Sprite ticketIcon;
+    [Tooltip("One line each on the ticket, e.g. Black / Oat milk")]
+    public string[] ticketSpecs;
+    [Tooltip("Expected cook/prep time in seconds for this item on a ticket.")]
+    public float expectedCookTime = 15f;
+    
     public enum VisualAction
     {
         AddLayer,
