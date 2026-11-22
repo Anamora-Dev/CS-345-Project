@@ -19,6 +19,9 @@ public class CustomerBehavior : MonoBehaviour
     public CustomerState State => state; // Public getter for the customer state
     private RectTransform customerRectTransform; // Reference to the customer's RectTransform
 
+    public int orderNumber;
+    public int[] orderItems;
+
     public void Initialize(CustomerAppearance customerAppearance)
     {
         appearance = customerAppearance;
@@ -68,6 +71,12 @@ public class CustomerBehavior : MonoBehaviour
                 Debug.LogWarning("Invalid mood value: " + mood);
                 break;
         }
+    }
+
+    public void SetOrder(int number, int[] items)
+    {
+        orderNumber = number;
+        orderItems = items;
     }
 
     void Start()
