@@ -4,6 +4,21 @@ using UnityEngine;
 public class Recipe : ScriptableObject
 {
 
+    [Header("Recipes App")]
+    public string displayName;
+    public Sprite listIcon;               // finished dish, shown in the list
+
+    [System.Serializable]
+    public struct GuideLine
+    {
+        [Tooltip("Icons shown left to right, e.g. toaster, white bread")]
+        public Sprite[] icons;
+    }
+
+    [Tooltip("Prep rows shown above the assembly row")]
+    public GuideLine[] guideLines;
+    public bool showAssemblyRow = true;
+
     [Header("Ticket")]
     public Sprite ticketIcon;
     [Tooltip("One line each on the ticket, e.g. Black / Oat milk")]
