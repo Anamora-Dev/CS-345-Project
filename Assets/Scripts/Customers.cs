@@ -21,7 +21,13 @@ public class Customers : MonoBehaviour
     public RectTransform gameArea; // Reference to the game area RectTransform
     public float speed = 5f; // Speed at which customers move
     
+    public ReceiptUI receiptUI;
+    public string[] foodNames;
+    public float[] foodPrices;
+    private int nextOrderNumber = 1;
     private GameObject[] spawnedCustomers; // Array to hold the spawned customer objects
+    public TicketRail ticketRail;
+    public bool hideBubbleAfterTaking = true;
 
     private void spawnCustomer(int index)
     {
@@ -42,6 +48,10 @@ public class Customers : MonoBehaviour
             // Initialize the customer with a random appearance
             CustomerBehavior customerBehavior = newCustomer.GetComponent<CustomerBehavior>();
             customerBehavior.Initialize(customerAppearances[Random.Range(0, customerAppearances.Length)]);
+
+            // The transparent, full-screen customer image must not block other customers' bubbles.
+            foreach (Graphic graphic in newCustomer.GetComponentsInChildren<Graphic>(true))
+                graphic.raycastTarget = false;
 
             // Set the position of the new customer to the spawn position
             RectTransform customerRect = newCustomer.GetComponent<RectTransform>();
@@ -123,7 +133,10 @@ public class Customers : MonoBehaviour
     {
         if (spawnedCustomers[index] != null)
         {
-
+            if (ticketRail != null)
+            {
+                ticketRail.RemoveTicket(index);
+            }
             Destroy(spawnedCustomers[index]);
             spawnedCustomers[index] = null;
             Debug.Log("Customer at index " + index + " has left.");
@@ -144,17 +157,76 @@ public class Customers : MonoBehaviour
                 Image foodRenderer2 = food2.GetComponent<Image>();
                 if (foodRenderer != null && foodRenderer2 != null)
                 {
-                    foodRenderer.sprite = foodSprites[Random.Range(0, foodSprites.Length)]; // Assign a random food sprite
-                    foodRenderer2.sprite = foodSprites[Random.Range(0, foodSprites.Length)]; // Assign a random food sprite
+                    //foodRenderer.sprite = foodSprites[Random.Range(0, foodSprites.Length)]; // Assign a random food sprite
+                    //foodRenderer2.sprite = foodSprites[Random.Range(0, foodSprites.Length)]; // Assign a random food sprite
+                    int item1 = Random.Range(0, foodSprites.Length);
+                    int item2 = Random.Range(0, foodSprites.Length);
+                    foodRenderer.sprite = foodSprites[item1];
+                    foodRenderer2.sprite = foodSprites[item2];
+
+                    CustomerBehavior behavior = spawnedCustomers[index].GetComponent<CustomerBehavior>();
+                    behavior.SetOrder(nextOrderNumber++, new int[] { item1, item2});
+
+                    setupBubbleClick(index, bubbleTransform, behavior);
+
                 }
             }
         }
     } 
 
+    // Clicking the bubble hangs a ticket on the TicketHolder rail.
+    private void setupBubbleClick(int index, Transform bubbleTransform, CustomerBehavior behavior)
+    {
+        // Only the bubble takes clicks, so customers' big transparent bodies can't block each other's bubbles
+        foreach (Graphic g in spawnedCustomers[index].GetComponentsInChildren<Graphic>(true))
+            g.raycastTarget = false;
+        foreach (Graphic g in bubbleTransform.GetComponentsInChildren<Graphic>(true))
+            g.raycastTarget = true;
+
+        Button button = bubbleTransform.GetComponent<Button>();
+        if (button == null) button = bubbleTransform.gameObject.AddComponent<Button>();
+        button.transition = Selectable.Transition.None;
+        button.onClick.RemoveAllListeners();
+        button.onClick.AddListener(() =>
+        {
+            if (behavior == null)
+            {
+                Debug.LogError("Cannot add a ticket because the customer order is missing.");
+                return;
+            }
+            if (ticketRail == null)
+            {
+                Debug.LogError("Customers: Ticket Rail is not assigned. Assign the OrderTicketContainer's TicketRail component.");
+                return;
+            }
+
+            if (!ticketRail.HasTicket(index)) ticketRail.AddTicket(index, this, behavior);
+            if (hideBubbleAfterTaking) bubbleTransform.gameObject.SetActive(false);
+        });
+    }
+
+
+
+    public string GetFoodName(int i)
+    {
+        if (foodNames != null && i < foodNames.Length && !string.IsNullOrEmpty(foodNames[i])) return foodNames[i];
+        return foodSprites[i].name;   // falls back to the sprite's file name
+    }
+
+    public float GetFoodPrice(int i)
+    {
+        if (foodPrices != null && i < foodPrices.Length) return foodPrices[i];
+        return 5f;                    // falls back to $5.00
+    }
+
     private void hideCustomerOrder(int index)
     {
         if (spawnedCustomers[index] != null)
         {
+            if (ticketRail != null)
+            {
+                ticketRail.RemoveTicket(index);
+            }
             Transform bubbleTransform = spawnedCustomers[index].transform.Find("ChatBubble");
             if (bubbleTransform != null && bubbleTransform.gameObject.activeSelf)
             {
