@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa15dd1e21763da4a926bd5733073a29, type: 3}
+  m_Name: Campus
+  m_EditorClassIdentifier: Assembly-CSharp::LocationData
+  displayName: Capus
+  backgroundPrefab: {fileID: 5727938286757067884, guid: 7bf875821a0f1f045871f12f0fd2a9bc, type: 3}
+  mapIcon: {fileID: 6378265564210174739, guid: 7f1bdac5347e3614985e525c7c4f1684, type: 3}

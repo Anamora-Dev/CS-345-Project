@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eab876b40d0d40848b2a1a78293d8960, type: 3}
   m_Name: BLT_Assembly
   m_EditorClassIdentifier: Assembly-CSharp::Recipe
+  ticketIcon: {fileID: -2706398383695209022, guid: 46c98abb2dc5f4349948d543cbe9b526, type: 3}
+  ticketSpecs: []
   steps:
   - ingredient: {fileID: 11400000, guid: 68b8c7dee81d8d84e9db773c1d8a8548, type: 2}
     visualAction: 0

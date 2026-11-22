@@ -12,6 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eab876b40d0d40848b2a1a78293d8960, type: 3}
   m_Name: GrilledCheeseAssembly
   m_EditorClassIdentifier: Assembly-CSharp::Recipe
+  displayName: GrilledCheese
+  listIcon: {fileID: 6670836802878233787, guid: d2204dd5463fc684bad1483ac26c71b2, type: 3}
+  guideLines:
+  - icons:
+    - {fileID: 4128729122234458234, guid: 2cad712d6d3cd1144b47fa78eeb9ce7f, type: 3}
+    - {fileID: -2706398383695209022, guid: 46c98abb2dc5f4349948d543cbe9b526, type: 3}
+    - {fileID: 4969975240454921159, guid: 5d535f4865cb88744804cc1acfd9cf5e, type: 3}
+    - {fileID: -2706398383695209022, guid: 46c98abb2dc5f4349948d543cbe9b526, type: 3}
+  showAssemblyRow: 0
+  ticketIcon: {fileID: 6670836802878233787, guid: d2204dd5463fc684bad1483ac26c71b2, type: 3}
+  ticketSpecs:
+  - American
+  - Gluten Free
+  expectedCookTime: 15
   steps:
   - ingredient: {fileID: 11400000, guid: b8785e7fc980296458dd4809404bf438, type: 2}
     visualAction: 0
