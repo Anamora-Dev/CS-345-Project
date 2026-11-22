@@ -10,8 +10,27 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eab876b40d0d40848b2a1a78293d8960, type: 3}
-  m_Name: AvoToast_Egg_Assembly
+  m_Name: AvoToast_Assemble
   m_EditorClassIdentifier: Assembly-CSharp::Recipe
+  displayName: 'Avocado Toast [no egg]'
+  listIcon: {fileID: 6468521879068027096, guid: 4506f477c3d48a24394e01c02b186abf, type: 3}
+  guideLines:
+  - tool: Toaster
+    icons:
+    - {fileID: -6034732276408302939, guid: 13fa2ae48137d7e48bbb75059cf62ba7, type: 3}
+  - tool: Knife
+    icons:
+    - {fileID: 6468377095134902092, guid: a67c06e99ad76614280bcc9df2a02309, type: 3}
+  - tool: 
+    icons:
+    - {fileID: 1560949132901046597, guid: 4deb8d3e949cd674eaa3a6f020a9f916, type: 3}
+    - {fileID: -2706398383695209022, guid: 46c98abb2dc5f4349948d543cbe9b526, type: 3}
+    - {fileID: -2496040466669729985, guid: 9f084ea6887e70a4da1f3d0289be2fce, type: 3}
+  showAssemblyRow: 1
+  ticketIcon: {fileID: 6468521879068027096, guid: 4506f477c3d48a24394e01c02b186abf, type: 3}
+  ticketSpecs:
+  - Egg
+  expectedCookTime: 10
   steps:
   - ingredient: {fileID: 11400000, guid: 68b8c7dee81d8d84e9db773c1d8a8548, type: 2}
     visualAction: 0
@@ -20,6 +39,8 @@ MonoBehaviour:
     targetStepIndex: 0
     plateSprite: {fileID: 0}
     plateVisual: {fileID: 1730121934439601807, guid: 1e595321cb9cabe439c12b87f1bc3e9f, type: 3}
+    overrideSortingLayer: 0
+    sortingLayerName: 
   - ingredient: {fileID: 11400000, guid: 0f57399a2680d2e4a93a834cd9c2d590, type: 2}
     visualAction: 2
     placementType: 0
@@ -27,6 +48,8 @@ MonoBehaviour:
     targetStepIndex: 0
     plateSprite: {fileID: 0}
     plateVisual: {fileID: 7139711421768109235, guid: 41030f2995455e644b5368c67ade13d4, type: 3}
+    overrideSortingLayer: 0
+    sortingLayerName: 
   - ingredient: {fileID: 11400000, guid: 8fea97c679de7e343b03b15cf755c128, type: 2}
     visualAction: 2
     placementType: 0
@@ -34,5 +57,10 @@ MonoBehaviour:
     targetStepIndex: 1
     plateSprite: {fileID: 0}
     plateVisual: {fileID: 1294892925749745018, guid: 68519fb852d19194f85ac981e9d4b444, type: 3}
+    overrideSortingLayer: 0
+    sortingLayerName: 
   cookTime: 0
   cookedOutput: {fileID: 0}
+  outputMode: 0
+  finishedVesselSprite: {fileID: 0}
+  servings: 4

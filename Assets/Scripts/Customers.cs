@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 public enum CustomerMood
 {
@@ -24,9 +25,7 @@ public class Customers : MonoBehaviour
     public ReceiptUI receiptUI;
     public string[] foodNames;
     public float[] foodPrices;
-    private int nextOrderNumber = 1;
     private GameObject[] spawnedCustomers; // Array to hold the spawned customer objects
-    public TicketRail ticketRail;
     public bool hideBubbleAfterTaking = true;
 
     private void spawnCustomer(int index)
@@ -133,10 +132,6 @@ public class Customers : MonoBehaviour
     {
         if (spawnedCustomers[index] != null)
         {
-            if (ticketRail != null)
-            {
-                ticketRail.RemoveTicket(index);
-            }
             Destroy(spawnedCustomers[index]);
             spawnedCustomers[index] = null;
             Debug.Log("Customer at index " + index + " has left.");
@@ -145,36 +140,54 @@ public class Customers : MonoBehaviour
 
     private void showCustomerOrder(int index)
     {
-        if (spawnedCustomers[index] != null)
+        if (spawnedCustomers[index] == null) return;
+
+        Transform bubbleTransform = spawnedCustomers[index].transform.Find("ChatBubble");
+        if (bubbleTransform == null || bubbleTransform.gameObject.activeSelf) return;
+
+        if (CustomerManager.Instance == null)
         {
-            Transform bubbleTransform = spawnedCustomers[index].transform.Find("ChatBubble");
-            if (bubbleTransform != null && !bubbleTransform.gameObject.activeSelf)
-            {
-                bubbleTransform.gameObject.SetActive(true); // Show the bubble when the customer reaches the position
-                Transform food1 = bubbleTransform.Find("Food1");
-                Transform food2 = bubbleTransform.Find("Food2"); 
-                Image foodRenderer = food1.GetComponent<Image>();
-                Image foodRenderer2 = food2.GetComponent<Image>();
-                if (foodRenderer != null && foodRenderer2 != null)
-                {
-                    //foodRenderer.sprite = foodSprites[Random.Range(0, foodSprites.Length)]; // Assign a random food sprite
-                    //foodRenderer2.sprite = foodSprites[Random.Range(0, foodSprites.Length)]; // Assign a random food sprite
-                    int item1 = Random.Range(0, foodSprites.Length);
-                    int item2 = Random.Range(0, foodSprites.Length);
-                    foodRenderer.sprite = foodSprites[item1];
-                    foodRenderer2.sprite = foodSprites[item2];
-
-                    CustomerBehavior behavior = spawnedCustomers[index].GetComponent<CustomerBehavior>();
-                    behavior.SetOrder(nextOrderNumber++, new int[] { item1, item2});
-
-                    setupBubbleClick(index, bubbleTransform, behavior);
-
-                }
-            }
+            Debug.LogError("Customers: no CustomerManager in the scene.");
+            return;
         }
-    } 
 
-    // Clicking the bubble hangs a ticket on the TicketHolder rail.
+        // Bubble has two icon slots, so orders are 1-2 items. Raise this if you add slots.
+        Image[] slots =
+        {
+            bubbleTransform.Find("Food1")?.GetComponent<Image>(),
+            bubbleTransform.Find("Food2")?.GetComponent<Image>()
+        };
+
+        CustomerOrder order = CustomerManager.Instance.CreateRandomOrder(1, slots.Length);
+        if (order == null)
+        {
+            Debug.LogError("Customers: CustomerManager's Menu Pool is empty.");
+            return;
+        }
+
+        bubbleTransform.gameObject.SetActive(true);
+
+        for (int i = 0; i < slots.Length; i++)
+        {
+            if (slots[i] == null) continue;
+            bool used = i < order.recipes.Count;
+            slots[i].gameObject.SetActive(used);
+            if (!used) continue;
+
+            slots[i].sprite = order.recipes[i].ticketIcon;
+            slots[i].enabled = slots[i].sprite != null;
+            slots[i].preserveAspect = true;
+        }
+
+        CustomerBehavior behavior = spawnedCustomers[index].GetComponent<CustomerBehavior>();
+        behavior.order = order;
+        behavior.orderNumber = order.ticketNumber;
+        behavior.ticketTaken = false;
+
+        setupBubbleClick(index, bubbleTransform, behavior);
+    }
+
+    // Clicking the bubble spawns the draggable ticket.
     private void setupBubbleClick(int index, Transform bubbleTransform, CustomerBehavior behavior)
     {
         // Only the bubble takes clicks, so customers' big transparent bodies can't block each other's bubbles
@@ -189,21 +202,23 @@ public class Customers : MonoBehaviour
         button.onClick.RemoveAllListeners();
         button.onClick.AddListener(() =>
         {
-            if (behavior == null)
+            if (behavior == null || behavior.order == null || behavior.ticketTaken) return;
+
+            Vector2 mousePos = Mouse.current != null ? Mouse.current.position.ReadValue() : Vector2.zero;
+            TicketView ticket = CustomerManager.Instance.SpawnTicket(behavior.order, mousePos);
+            Debug.Log("Ticket spawned: " + (ticket != null) + " at " + mousePos);
+            if (ticket == null)
             {
-                Debug.LogError("Cannot add a ticket because the customer order is missing.");
-                return;
-            }
-            if (ticketRail == null)
-            {
-                Debug.LogError("Customers: Ticket Rail is not assigned. Assign the OrderTicketContainer's TicketRail component.");
+                Debug.LogError("Customers: couldn't spawn ticket. Check Ticket Prefab and Ticket Parent on CustomerManager.");
                 return;
             }
 
-            if (!ticketRail.HasTicket(index)) ticketRail.AddTicket(index, this, behavior);
+            behavior.ticketTaken = true;
             if (hideBubbleAfterTaking) bubbleTransform.gameObject.SetActive(false);
         });
     }
+
+
 
 
 
@@ -223,10 +238,6 @@ public class Customers : MonoBehaviour
     {
         if (spawnedCustomers[index] != null)
         {
-            if (ticketRail != null)
-            {
-                ticketRail.RemoveTicket(index);
-            }
             Transform bubbleTransform = spawnedCustomers[index].transform.Find("ChatBubble");
             if (bubbleTransform != null && bubbleTransform.gameObject.activeSelf)
             {

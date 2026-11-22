@@ -246,6 +246,15 @@ MonoBehaviour:
     angrySprite: {fileID: 0}
   mood: 0
   moodChangeTimer: 0
+  order:
+    ticketNumber: 0
+    customerName: Customer
+    recipes: []
+    itemCompleted: 
+    isExpired: 0
+  ticketTaken: 0
+  orderNumber: 0
+  orderItems: 
 --- !u!1 &6094240199646582304
 GameObject:
   m_ObjectHideFlags: 0

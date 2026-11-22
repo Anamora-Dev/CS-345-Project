@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class RecipesApp : MonoBehaviour
@@ -9,14 +10,14 @@ public class RecipesApp : MonoBehaviour
     public GameObject detailView;
 
     [Header("List")]
-    public Transform listContent;       // Scroll View > Viewport > Content
+    public Transform listContent;
     public RecipeRow rowPrefab;
 
     [Header("Detail")]
     public TMP_Text titleText;
     public Transform detailContent;
-    public GameObject guideRowPrefab;
-    public GameObject iconPrefab;
+    public ScrollRect detailScroll;
+    public RecipeGuideStepRow guideRowPrefab;
 
     void OnEnable()
     {
@@ -39,7 +40,6 @@ public class RecipesApp : MonoBehaviour
 
     void BuildList()
     {
-        Debug.Log("BuildList: " + RecipeBook.Instance.allRecipes.Length + " recipes");
         Clear(listContent);
         foreach (var r in RecipeBook.Instance.allRecipes)
         {
@@ -55,26 +55,25 @@ public class RecipesApp : MonoBehaviour
         titleText.text = recipe.displayName;
         Clear(detailContent);
 
+        int stepNum = 1;
+
         if (recipe.guideLines != null)
             foreach (var line in recipe.guideLines)
-                AddRow(line.icons);
+                AddRow(stepNum++, line.tool, line.icons);
 
         if (recipe.showAssemblyRow)
-            AddRow(GetAssemblyStack(recipe).ToArray());
+            AddRow(stepNum++, "Assemble", GetAssemblyStack(recipe).ToArray());
+
+        LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)detailContent);
+        if (detailScroll != null) detailScroll.verticalNormalizedPosition = 1f; // scroll to top
     }
 
-    void AddRow(Sprite[] sprites)
+    void AddRow(int stepNumber, string tool, Sprite[] sprites)
     {
         var row = Instantiate(guideRowPrefab, detailContent);
-        foreach (var s in sprites)
-        {
-            if (s == null) continue;
-            var icon = Instantiate(iconPrefab, row.transform);
-            icon.GetComponent<UnityEngine.UI.Image>().sprite = s;
-        }
+        row.Setup(stepNumber, tool, sprites);
     }
 
-    // Simulates the plate's visuals step by step to get the final layer order
     List<Sprite> GetAssemblyStack(Recipe recipe)
     {
         var stack = new List<(int step, Sprite sprite)>();
@@ -114,6 +113,11 @@ public class RecipesApp : MonoBehaviour
 
     void Clear(Transform parent)
     {
-        foreach (Transform child in parent) Destroy(child.gameObject);
+        for (int i = parent.childCount - 1; i >= 0; i--)
+        {
+            var child = parent.GetChild(i).gameObject;
+            child.SetActive(false);   // layout ignores it immediately
+            Destroy(child);
+        }
     }
 }

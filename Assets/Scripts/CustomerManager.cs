@@ -20,19 +20,20 @@ public class CustomerManager : MonoBehaviour
         nextTicketNumber = startingTicketNumber;
     }
 
-    public TicketView SpawnRandomCustomerOrder(int minItems = 1, int maxItems = 3)
+    // Builds an order from the menu pool without spawning a ticket yet.
+    public CustomerOrder CreateRandomOrder(int minItems = 1, int maxItems = 3, string customerName = null)
     {
-        if (menuPool == null || menuPool.Count == 0 || ticketPrefab == null) return null;
+        if (menuPool == null || menuPool.Count == 0) return null;
 
         int count = Random.Range(Mathf.Max(1, minItems), Mathf.Max(minItems, maxItems) + 1);
         var picked = new List<Recipe>(count);
         for (int i = 0; i < count; i++)
             picked.Add(menuPool[Random.Range(0, menuPool.Count)]);
 
-        return SpawnOrder(picked, $"Guest #{nextTicketNumber}");
+        return CreateOrder(picked, customerName ?? $"Guest #{nextTicketNumber}");
     }
 
-    public TicketView SpawnOrder(List<Recipe> recipes, string customerName = "Guest")
+    public CustomerOrder CreateOrder(List<Recipe> recipes, string customerName = "Guest")
     {
         var order = new CustomerOrder
         {
@@ -41,17 +42,41 @@ public class CustomerManager : MonoBehaviour
             recipes = new List<Recipe>(recipes)
         };
         order.EnsureStateArrays();
+        return order;
+    }
+
+    // Spawns the draggable ticket for an existing order, optionally at a screen position.
+    public TicketView SpawnTicket(CustomerOrder order, Vector2? screenPosition = null)
+    {
+        if (order == null || ticketPrefab == null || ticketParent == null) return null;
 
         var ticket = Instantiate(ticketPrefab, ticketParent);
         ticket.Setup(order);
         activeTickets[order.ticketNumber] = ticket;
+
+        if (screenPosition.HasValue)
+            PlaceAtScreenPoint((RectTransform)ticket.transform, screenPosition.Value);
+
         return ticket;
     }
 
-    /// <summary>
-    /// Call this when the player brings a cooked Recipe to a customer/ticket.
-    /// Strikes through the first matching uncompleted item on that ticket.
-    /// </summary>
+    private void PlaceAtScreenPoint(RectTransform ticketRect, Vector2 screenPoint)
+    {
+        Canvas canvas = ticketParent.GetComponentInParent<Canvas>();
+        Camera cam = (canvas != null && canvas.renderMode != RenderMode.ScreenSpaceOverlay)
+            ? canvas.worldCamera
+            : null;
+
+        if (RectTransformUtility.ScreenPointToWorldPointInRectangle(ticketParent, screenPoint, cam, out Vector3 world))
+            ticketRect.position = world;
+    }
+
+    public TicketView SpawnOrder(List<Recipe> recipes, string customerName = "Guest")
+        => SpawnTicket(CreateOrder(recipes, customerName));
+
+    public TicketView SpawnRandomCustomerOrder(int minItems = 1, int maxItems = 3)
+        => SpawnTicket(CreateRandomOrder(minItems, maxItems));
+
     public bool DeliverItemToTicket(int ticketNumber, Recipe deliveredRecipe)
     {
         if (!activeTickets.TryGetValue(ticketNumber, out var ticket) || ticket == null)

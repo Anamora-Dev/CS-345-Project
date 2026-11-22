@@ -16,6 +16,8 @@ public class CustomerBehavior : MonoBehaviour
     public float moodChangeTimer; // Timer to track mood change
     private CustomerState state; // Current state of the customer
 
+    public CustomerOrder order;     // recipes + ticket number for this customer
+    public bool ticketTaken;        // true once the player clicked the bubble
     public CustomerState State => state; // Public getter for the customer state
     private RectTransform customerRectTransform; // Reference to the customer's RectTransform
 

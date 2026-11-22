@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eab876b40d0d40848b2a1a78293d8960, type: 3}
+  m_Name: AvoToast_Egg_Assembly
+  m_EditorClassIdentifier: Assembly-CSharp::Recipe
+  displayName: 'Avocado Toast [egg]'
+  listIcon: {fileID: -5005974244806611192, guid: dbbc9cf9e63ad6a4d9aae43df48b0e12, type: 3}
+  guideLines:
+  - tool: Toaster
+    icons:
+    - {fileID: -6034732276408302939, guid: 13fa2ae48137d7e48bbb75059cf62ba7, type: 3}
+  - tool: Knife
+    icons:
+    - {fileID: 6468377095134902092, guid: a67c06e99ad76614280bcc9df2a02309, type: 3}
+  - tool: Pan
+    icons:
+    - {fileID: 2496665120342024263, guid: 7a77ec967389a0244a54e9e7328b4baf, type: 3}
+  - tool: 
+    icons:
+    - {fileID: 1560949132901046597, guid: 4deb8d3e949cd674eaa3a6f020a9f916, type: 3}
+    - {fileID: -2706398383695209022, guid: 46c98abb2dc5f4349948d543cbe9b526, type: 3}
+    - {fileID: -2496040466669729985, guid: 9f084ea6887e70a4da1f3d0289be2fce, type: 3}
+    - {fileID: 1864662434203819334, guid: 0b2eb276a83203246a739eaf8983a7ca, type: 3}
+  showAssemblyRow: 0
+  ticketIcon: {fileID: -5005974244806611192, guid: dbbc9cf9e63ad6a4d9aae43df48b0e12, type: 3}
+  ticketSpecs:
+  - Egg
+  expectedCookTime: 10
+  steps:
+  - ingredient: {fileID: 11400000, guid: 68b8c7dee81d8d84e9db773c1d8a8548, type: 2}
+    visualAction: 0
+    placementType: 0
+    snapPointIndex: 0
+    targetStepIndex: 0
+    plateSprite: {fileID: 0}
+    plateVisual: {fileID: 1730121934439601807, guid: 1e595321cb9cabe439c12b87f1bc3e9f, type: 3}
+    overrideSortingLayer: 0
+    sortingLayerName: 
+  - ingredient: {fileID: 11400000, guid: 0f57399a2680d2e4a93a834cd9c2d590, type: 2}
+    visualAction: 2
+    placementType: 0
+    snapPointIndex: 0
+    targetStepIndex: 0
+    plateSprite: {fileID: 0}
+    plateVisual: {fileID: 7139711421768109235, guid: 41030f2995455e644b5368c67ade13d4, type: 3}
+    overrideSortingLayer: 0
+    sortingLayerName: 
+  cookTime: 0
+  cookedOutput: {fileID: 0}
+  outputMode: 0
+  finishedVesselSprite: {fileID: 0}
+  servings: 4

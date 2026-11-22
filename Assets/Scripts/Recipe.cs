@@ -11,7 +11,9 @@ public class Recipe : ScriptableObject
     [System.Serializable]
     public struct GuideLine
     {
-        [Tooltip("Icons shown left to right, e.g. toaster, white bread")]
+        [Tooltip("Tool or station shown as text, e.g. Pan, Knife, Toaster")]
+        public string tool;
+        [Tooltip("Food sprites only, shown left to right")]
         public Sprite[] icons;
     }
 

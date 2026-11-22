@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 92218288019807833}
   - component: {fileID: 2662525807103422998}
   m_Layer: 5
-  m_Name: SpeechBubb;e
+  m_Name: SpeechBubble
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
