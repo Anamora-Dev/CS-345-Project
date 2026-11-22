@@ -93,13 +93,13 @@ public class CustomerBehavior : MonoBehaviour
             moodChangeTimer += Time.deltaTime;
 
             // Check if it's time to change the mood
-            if (moodChangeTimer >= 10f && mood == CustomerMood.Default) // Change to annoyed after 10 seconds
+            if (moodChangeTimer >= 30f && mood == CustomerMood.Default) // Change to annoyed after 10 seconds
             {
                 ChangeMood();
-            } else if (moodChangeTimer >= 20f && mood == CustomerMood.Annoyed) // Change to angry after 20 seconds
+            } else if (moodChangeTimer >= 60f && mood == CustomerMood.Annoyed) // Change to angry after 20 seconds
             {
                 ChangeMood();
-            } else if (moodChangeTimer >= 30f && mood == CustomerMood.Angry) // Reset to default after 30 seconds
+            } else if (moodChangeTimer >= 90f && mood == CustomerMood.Angry) // Reset to default after 30 seconds
             {
                 state = CustomerState.Leaving; // Change state to leaving
             }

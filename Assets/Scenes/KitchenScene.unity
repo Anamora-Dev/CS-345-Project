@@ -1565,8 +1565,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 70
-  m_fontSizeBase: 70
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -4539,21 +4539,78 @@ MonoBehaviour:
   foodSprites:
   - {fileID: -2826739197363999186, guid: dac593d993de30b408884f124bb22b0d, type: 3}
   - {fileID: -5321011110266545111, guid: 59013adde6b79a049908be406ea2e7e5, type: 3}
-  - {fileID: 4675429230339738166, guid: 67e016cf287d0014dab5abcfa943fd45, type: 3}
-  - {fileID: 251426747149250510, guid: 7ad873dcb97b2694b91308743c47f68d, type: 3}
+  - {fileID: 731375368619335737, guid: 6d64475d1eea2b84c8a7e434afa7f721, type: 3}
+  - {fileID: 3446915761867436180, guid: 98ab20c55303a6d46bae3f0150c5a680, type: 3}
+  - {fileID: 6582011127417039112, guid: 437ac021f8754904baa1c0420f4dd03f, type: 3}
+  - {fileID: -5163218188319675139, guid: b63a12641945136499c4d66e0a43275b, type: 3}
+  - {fileID: 7744475132971705542, guid: 2eb12133d5ad28c4d94f21fcc85364ce, type: 3}
+  - {fileID: 8689319978456130346, guid: 4febe6e5184e0094daaca54c7bf58edb, type: 3}
+  - {fileID: -5796414944416709047, guid: e98624d84443cfa40860c0c92e7850a1, type: 3}
   - {fileID: -3171808307409712533, guid: e203335154c03714686ed489ed8b3ac8, type: 3}
+  - {fileID: 4675429230339738166, guid: 67e016cf287d0014dab5abcfa943fd45, type: 3}
+  - {fileID: -8522056921946641859, guid: 709de27e378a2e245b0af069ceed6ed2, type: 3}
   - {fileID: 3833758031421226935, guid: c19536ebad83d024a80824f351b7c6f1, type: 3}
+  - {fileID: -3989779040996753245, guid: 8e6c82b0ebb847e4ba5a9dfcc79b569e, type: 3}
+  - {fileID: 8154236785053168965, guid: d23f0ee2c2bbf274db0441b0e0aa8864, type: 3}
+  - {fileID: 3079916463584349040, guid: c7e88c77f7826d541b4d0aa4965b5bb4, type: 3}
+  - {fileID: -457990981459464644, guid: 49f1d34ff31b6134e80a9c616c7430a2, type: 3}
+  - {fileID: -961213662426786586, guid: 501f5e571ff754a4e808b7ea758a953e, type: 3}
+  - {fileID: -4651870836278800707, guid: af0ff87776f31024481630e596b821b9, type: 3}
+  - {fileID: -8684366494535776791, guid: 45d9478f201b6b043a24d79892ba40fc, type: 3}
+  - {fileID: -8684402822076432266, guid: b3ac6c958878a4849b287417185ae2a1, type: 3}
+  - {fileID: 8180320953220700661, guid: b5f0eaf3b2d2a31418b02d4ca3a6aa1a, type: 3}
+  - {fileID: -6569896119349450243, guid: 09d762df4ef0aae468ff21870b8639a1, type: 3}
   gameArea: {fileID: 505149542}
   speed: 300
   receiptUI: {fileID: 1333923144}
   foodNames:
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  foodPrices: []
+  - Avocado Toast
+  - Bacon Toast
+  - Burger
+  - Carrot Stew
+  - Cheese
+  - Chocolate Croissant
+  - Chocolate Doughnut
+  - Croissant
+  - Coffee
+  - Tea
+  - Egg Toast
+  - Jam Doughnut
+  - Jam Pastrie
+  - Jam Toast
+  - Meatballs
+  - Milk & Cookies
+  - Mushroom Stew
+  - PB&J Toast
+  - Pistachio Doughnut
+  - Pumpkin Soup
+  - Strawberry Doughnut
+  - Toast
+  - Tomato Stew
+  foodPrices:
+  - 15.99
+  - 15.99
+  - 13.99
+  - 8.99
+  - 8.99
+  - 4.99
+  - 4.99
+  - 3.99
+  - 3.99
+  - 4.99
+  - 6.99
+  - 6.99
+  - 6.99
+  - 6.99
+  - 9.99
+  - 5.99
+  - 10.99
+  - 4.99
+  - 4.99
+  - 9.99
+  - 4.99
+  - 3.99
+  - 8.99
   ticketRail: {fileID: 1340740535}
   hideBubbleAfterTaking: 1
 --- !u!4 &920791678
@@ -6923,6 +6980,14 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!222 &1340740534
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1340740531}
+  m_CullTransparentMesh: 1
 --- !u!114 &1340740535
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6937,14 +7002,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TicketRail
   ticketPrefab: {fileID: 9051616596998677450, guid: 0ef473965f255ce44a5a437b04ed6e4b, type: 3}
   receiptUI: {fileID: 1333923144}
---- !u!222 &1340740534
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1340740531}
-  m_CullTransparentMesh: 1
 --- !u!1 &1358097233
 GameObject:
   m_ObjectHideFlags: 0

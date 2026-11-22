@@ -29,11 +29,7 @@ public class TicketRail : MonoBehaviour
         if (label != null)
         {
             label.raycastTarget = false;
-            var sb = new StringBuilder();
-            sb.AppendLine("#" + customer.orderNumber.ToString("0000"));
-            foreach (int item in customer.orderItems)
-                sb.AppendLine(customers.GetFoodName(item));
-            label.text = sb.ToString();
+            label.text = "#" + customer.orderNumber.ToString("0000");
         }
 
         // click opens the receipt
