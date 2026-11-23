@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e051acba198369479555ef65b7a1d9a, type: 3}
   m_Name: CoffeeTeaMug
   m_EditorClassIdentifier: Assembly-CSharp::CupDesign
-  sprite: {fileID: 0}
+  sprite: {fileID: 9017829608886272316, guid: d601743822435d14ebb9a9159d8aadc1, type: 3}

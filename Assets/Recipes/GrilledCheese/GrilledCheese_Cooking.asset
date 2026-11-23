@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eab876b40d0d40848b2a1a78293d8960, type: 3}
   m_Name: GrilledCheese_Cooking
   m_EditorClassIdentifier: Assembly-CSharp::Recipe
+  ticketIcon: {fileID: 0}
+  ticketSpecs: []
   steps:
   - ingredient: {fileID: 11400000, guid: de88422a6fd36994d9574036c34a3e4f, type: 2}
     visualAction: 0

@@ -196,7 +196,7 @@ public class Customers : MonoBehaviour
             }
             if (ticketRail == null)
             {
-                Debug.LogError("Customers: Ticket Rail is not assigned. Assign the OrderTicketContainer's TicketRail component.");
+                Debug.LogError("Customers: Ticket Rail is not assigned to a live ticket container.");
                 return;
             }
 

@@ -1,0 +1,704 @@
+fileFormatVersion: 2
+guid: 30135a0635fe2974aa165234cdb91c5b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6388408094842302680
+    second: stadium_0
+  - first:
+      213: 1915246723222158787
+    second: stadium_1
+  - first:
+      213: 3607901933760920068
+    second: stadium_2
+  - first:
+      213: -3367821613210083830
+    second: stadium_3
+  - first:
+      213: -7308809899957961683
+    second: stadium_4
+  - first:
+      213: -5160984847287677874
+    second: stadium_5
+  - first:
+      213: 6373032840116728839
+    second: stadium_6
+  - first:
+      213: 1802079995295350152
+    second: stadium_7
+  - first:
+      213: -5895259547925342959
+    second: stadium_8
+  - first:
+      213: -4743643333923472269
+    second: stadium_9
+  - first:
+      213: 9196197185191687630
+    second: stadium_10
+  - first:
+      213: 1551325287747294784
+    second: stadium_11
+  - first:
+      213: -3294734151917083138
+    second: stadium_12
+  - first:
+      213: 9145319056167533012
+    second: stadium_13
+  - first:
+      213: -2892727448720875802
+    second: stadium_14
+  - first:
+      213: -7532765209151161550
+    second: stadium_15
+  - first:
+      213: -6102468298329166066
+    second: stadium_16
+  - first:
+      213: -7701583516264018826
+    second: stadium_17
+  - first:
+      213: 9018215884781632172
+    second: stadium_18
+  - first:
+      213: 8591408840486688164
+    second: stadium_19
+  - first:
+      213: 5773770649883219820
+    second: stadium_20
+  - first:
+      213: 8884931460527606420
+    second: stadium_21
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: stadium_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 470
+        width: 139
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d03e45a05f28a850800000000000000
+      internalID: 6388408094842302680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stadium_1
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 505
+        width: 23
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3cd33e25fb2549a10800000000000000
+      internalID: 1915246723222158787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stadium_2
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 507
+        width: 43
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40ab34a71b7d11230800000000000000
+      internalID: 3607901933760920068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stadium_3
+      rect:
+        serializedVersion: 2
+        x: 238
+        y: 517
+        width: 81
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0edab516181341d0800000000000000
+      internalID: -3367821613210083830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stadium_4
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 511
+        width: 9
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2cb526ae14e19a90800000000000000
+      internalID: -7308809899957961683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stadium_5
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 505
+        width: 52
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4c8e3e10af7068b0800000000000000
+      internalID: -5160984847287677874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stadium_6
+      rect:
+        serializedVersion: 2
+        x: 334
+        y: 557
+        width: 87
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7047e013a9f817850800000000000000
+      internalID: 6373032840116728839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stadium_7
+      rect:
+        serializedVersion: 2
+        x: 446
+        y: 537
+        width: 55
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88dba683536420910800000000000000
+      internalID: 1802079995295350152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stadium_8
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 519
+        width: 51
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1151e23fca4df2ea0800000000000000
+      internalID: -5895259547925342959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stadium_9
+      rect:
+        serializedVersion: 2
+        x: 558
+        y: 557
+        width: 65
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37c775c45813b2eb0800000000000000
+      internalID: -4743643333923472269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stadium_10
+      rect:
+        serializedVersion: 2
+        x: 616
+        y: 529
+        width: 47
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec53ccbcd947f9f70800000000000000
+      internalID: 9196197185191687630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stadium_11
+      rect:
+        serializedVersion: 2
+        x: 658
+        y: 505
+        width: 191
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0461243412a678510800000000000000
+      internalID: 1551325287747294784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stadium_12
+      rect:
+        serializedVersion: 2
+        x: 662
+        y: 559
+        width: 13
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef562adbeb0c642d0800000000000000
+      internalID: -3294734151917083138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stadium_13
+      rect:
+        serializedVersion: 2
+        x: 814
+        y: 541
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d9f9744a33baee70800000000000000
+      internalID: 9145319056167533012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stadium_14
+      rect:
+        serializedVersion: 2
+        x: 822
+        y: 505
+        width: 41
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ee58f236b7fad7d0800000000000000
+      internalID: -2892727448720875802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stadium_15
+      rect:
+        serializedVersion: 2
+        x: 852
+        y: 517
+        width: 85
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23bbf1cd3fd367790800000000000000
+      internalID: -7532765209151161550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stadium_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1009
+        height: 510
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0fe1093a6daf4ba0800000000000000
+      internalID: -6102468298329166066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stadium_17
+      rect:
+        serializedVersion: 2
+        x: 964
+        y: 470
+        width: 21
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67c4411c89a7e1590800000000000000
+      internalID: -7701583516264018826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stadium_18
+      rect:
+        serializedVersion: 2
+        x: 984
+        y: 399
+        width: 21
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: caab1301193272d70800000000000000
+      internalID: 9018215884781632172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stadium_19
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 374
+        width: 5
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a51c5932d0da3770800000000000000
+      internalID: 8591408840486688164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stadium_20
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 63
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c679dd8b0dd802050800000000000000
+      internalID: 5773770649883219820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stadium_21
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 59
+        width: 13
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49ac076c61e9d4b70800000000000000
+      internalID: 8884931460527606420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      stadium_0: 6388408094842302680
+      stadium_1: 1915246723222158787
+      stadium_10: 9196197185191687630
+      stadium_11: 1551325287747294784
+      stadium_12: -3294734151917083138
+      stadium_13: 9145319056167533012
+      stadium_14: -2892727448720875802
+      stadium_15: -7532765209151161550
+      stadium_16: -6102468298329166066
+      stadium_17: -7701583516264018826
+      stadium_18: 9018215884781632172
+      stadium_19: 8591408840486688164
+      stadium_2: 3607901933760920068
+      stadium_20: 5773770649883219820
+      stadium_21: 8884931460527606420
+      stadium_3: -3367821613210083830
+      stadium_4: -7308809899957961683
+      stadium_5: -5160984847287677874
+      stadium_6: 6373032840116728839
+      stadium_7: 1802079995295350152
+      stadium_8: -5895259547925342959
+      stadium_9: -4743643333923472269
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
