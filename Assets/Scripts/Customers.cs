@@ -200,8 +200,10 @@ public class Customers : MonoBehaviour
                 return;
             }
 
-            if (!ticketRail.HasTicket(index)) ticketRail.AddTicket(index, this, behavior);
-            if (hideBubbleAfterTaking) bubbleTransform.gameObject.SetActive(false);
+            bool ticketExists = ticketRail.HasTicket(index);
+            bool ticketAdded = ticketExists || ticketRail.AddTicket(index, this, behavior);
+            if (ticketAdded && hideBubbleAfterTaking)
+                bubbleTransform.gameObject.SetActive(false);
         });
     }
 

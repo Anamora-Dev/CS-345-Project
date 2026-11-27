@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 3898a498693a0454d8b6ebf0c617e036
+guid: a3fef85858dba3f4bb421cbde6b97ea6
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6776107435997095688
-    second: Ticket-Stabber-Receipt-Spike-5-51x2-68-Inches-Stainless-Steel-Receipt-Holder-Spike-Credit-Card-Check-Ticket-Spike-Heavy-Duty-Non-Slip-Base-Restaurant_713cd5b0-5c54-4636-957a-515c6ac5ff1a.5b01013878d40-1.png_0
+      213: 2385510500442672309
+    second: brown_nail1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -98,30 +98,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Ticket-Stabber-Receipt-Spike-5-51x2-68-Inches-Stainless-Steel-Receipt-Holder-Spike-Credit-Card-Check-Ticket-Spike-Heavy-Duty-Non-Slip-Base-Restaurant_713cd5b0-5c54-4636-957a-515c6ac5ff1a.5b01013878d40-1.png_0
+      name: brown_nail1_0
       rect:
         serializedVersion: 2
-        x: 53
-        y: 2
-        width: 86
-        height: 188
+        x: 70
+        y: 70
+        width: 360
+        height: 360
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -130,8 +117,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8f89285303e66f1a0800000000000000
-      internalID: -6776107435997095688
+      spriteID: 5bc89d249290b1120800000000000000
+      internalID: 2385510500442672309
       vertices: []
       indices: 
       edges: []
@@ -150,7 +137,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Ticket-Stabber-Receipt-Spike-5-51x2-68-Inches-Stainless-Steel-Receipt-Holder-Spike-Credit-Card-Check-Ticket-Spike-Heavy-Duty-Non-Slip-Base-Restaurant_713cd5b0-5c54-4636-957a-515c6ac5ff1a.5b01013878d40-1.png_0: -6776107435997095688
+      brown_nail1_0: 2385510500442672309
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

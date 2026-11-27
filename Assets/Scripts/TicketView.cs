@@ -80,6 +80,81 @@ public class TicketView : MonoBehaviour
         Rebuild();
     }
 
+    public bool SetupReceipt(int orderNumber, Customers customers, IReadOnlyList<int> itemIndexes)
+    {
+        if (customers == null || itemIndexes == null || itemIndexes.Count == 0)
+        {
+            Debug.LogError("Cannot build a ticket receipt without customer order items.");
+            return false;
+        }
+
+        if (customers.foodSprites == null)
+        {
+            Debug.LogError("Customers has no food sprites assigned for the ticket receipt.");
+            return false;
+        }
+
+        if (linePrefab == null || body == null)
+        {
+            Debug.LogError("TicketView needs a line prefab and body to display a ticket receipt.");
+            return false;
+        }
+
+        foreach (int itemIndex in itemIndexes)
+        {
+            if (itemIndex < 0 || itemIndex >= customers.foodSprites.Length)
+            {
+                Debug.LogError($"Ticket receipt contains invalid food index {itemIndex}.");
+                return false;
+            }
+        }
+
+        currentOrder = null;
+        totalExpectedTime = 0f;
+        expiredTriggered = false;
+
+        if (ticketNumberText != null)
+        {
+            ticketNumberText.gameObject.SetActive(true);
+            ticketNumberText.text = $"#{orderNumber:0000}";
+        }
+        if (timerText != null) timerText.gameObject.SetActive(false);
+        if (itemCountText != null) itemCountText.gameObject.SetActive(false);
+
+        ClearBody();
+
+        float subtotal = 0f;
+        foreach (int itemIndex in itemIndexes)
+        {
+            float price = customers.GetFoodPrice(itemIndex);
+            subtotal += price;
+            AddReceiptLine(
+                customers.foodSprites[itemIndex],
+                customers.GetFoodName(itemIndex),
+                price);
+        }
+
+        const float taxRate = 0.05f;
+        float tax = Mathf.Round(subtotal * taxRate * 100f) / 100f;
+        float total = subtotal + tax;
+        AddReceiptLine(null, "Subtotal", subtotal);
+        AddReceiptLine(null, "Tax (5%)", tax);
+        AddReceiptLine(null, "Total", total, true);
+
+        if (endCapPrefab != null)
+            Instantiate(endCapPrefab, body);
+
+        SetExpanded(true);
+        return true;
+    }
+
+    private void AddReceiptLine(Sprite icon, string label, float price, bool emphasize = false)
+    {
+        TicketLineView line = Instantiate(linePrefab, body);
+        line.SetupReceiptLine(icon, label, price, emphasize);
+        spawnedLines.Add(line);
+    }
+
     // Backwards-compatible overload if passing raw recipes directly
     public void Setup(int ticketNumber, IReadOnlyList<Recipe> recipes)
     {
